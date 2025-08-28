@@ -1,19 +1,14 @@
-import java.util.*;
-
 class Solution {
     public int missingNumber(int[] nums) {
-        Set<Integer> newset = new HashSet<>();
-        for (int num : nums) {
-            newset.add(num);
+        int n = nums.length;
+        int exsum = n*(n+1)/2;
+        int sum=0;
+
+        for(int num:nums){
+            sum+=num;
         }
 
-        int count = nums.length;  
-
-        for (int i = 0; i <= count; i++) {
-            if (!newset.contains(i)) {
-                return i;
-            }
-        }
-        return -1; 
+        int result = exsum-sum;
+        return result;
     }
 }
